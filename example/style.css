@@ -1,0 +1,17 @@
+.paneTree {
+  width: 50%;
+  float: left;
+}
+
+.paneArray {
+  width: 49%;
+  float: right;
+}
+
+.timeTree {
+  font-weight : bold;
+}
+
+.timeArray {
+  font-weight : bold;
+}
