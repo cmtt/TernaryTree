@@ -1,7 +1,7 @@
 function AssertException(message) { this.message = message; }
 AssertException.prototype.toString = function () {
   return 'AssertException: ' + this.message;
-}
+};
 
 function assert(exp, message) {
   if (!exp) {
@@ -28,7 +28,6 @@ Tree.contains('A', function (err,nodes) {
 });
 
 Tree.contains('a', function (err,nodes) {
-  console.log(nodes)
   assert(nodes.length === 3,'contains provides Aarhus,Aaron,Ababa');
   var vals = _.pluck(nodes,'value');
   assert(nodes.length === 3,'Tree.contains provides 3 results');

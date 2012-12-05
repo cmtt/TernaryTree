@@ -1,4 +1,4 @@
-// Ternary Tree, a binary search tree 
+// Ternary Tree, a binary search tree
 
 // adapted from http://www.drdobbs.com/article/print?articleId=184410528
 
@@ -97,7 +97,7 @@ var  TernaryTree = (function () {
       var insertChar = function(node, str, pos) {
         var c = str.charCodeAt(pos)
           , l = str.length;
-        
+
         if (node === null) node = new tNode(str.charAt(pos));
         var cmp = node.chr.charCodeAt(0);
 
@@ -114,7 +114,7 @@ var  TernaryTree = (function () {
             ++self.length;
             if (typeof callback === 'function') callback.call(self, null, node);
             return node;
-          } else {          
+          } else {
             ++pos;
             node.center = insertChar(node.center,str,pos);
           }
@@ -130,7 +130,7 @@ var  TernaryTree = (function () {
 
   TernaryTree.prototype.contains = function (str, callback) {
     var self = this;
-    
+
     if (typeof callback !== 'function') callback = null;
     if (self.rootNode === null) {
       if (callback)  callback.call(self, new Error(ERR_EMPTY_TREE));
@@ -145,8 +145,7 @@ var  TernaryTree = (function () {
       return;
     }
 
-    var self = this
-      , pos = 0
+    var pos = 0
       , l = str.length
       , matchingNodes = [];
 
@@ -240,7 +239,7 @@ var  TernaryTree = (function () {
     };
     searchNode(self.rootNode,str,pos);
     if (nodeMatched === false && callback) callback.call(self, null, null);
-  }
+  };
 
   /**
    * searches the tree for nodes, matching nodes with a string similar to the provided string
@@ -288,11 +287,11 @@ var  TernaryTree = (function () {
           searchSimilarNode(node.center, str, s ? pos+1 : pos, s === cmp ? d : d-1);
         }
       } else {
-        searchSimilarNode(node.center, str, s ? pos+1 : pos, s === cmp ? d : d-1);  
+        searchSimilarNode(node.center, str, s ? pos+1 : pos, s === cmp ? d : d-1);
       }
 
       if (d > 0 || s > cmp) {
-        searchSimilarNode(node.rgt,str,pos,d);      
+        searchSimilarNode(node.rgt,str,pos,d);
       }
     };
 
